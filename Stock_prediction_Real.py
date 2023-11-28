@@ -55,7 +55,7 @@ data_load_state = st.text("Load data...")
 data = load_data(selected_stock)
 data_load_state.text("Loading data...done!")
 
-st.subheader('Raw data')
+st.subheader('Training Data for '+food_item+' forecasting ')
 column_mapping = {"Date": "Date", "Open": "Opening Market Price", "Close": "Closing Market Price", "Low": "Lowest Market Price", "Volume": "Trading Quantity"}
 selected_columns = list(column_mapping.keys())
 
@@ -121,7 +121,7 @@ if selected_date:
         print(forecast[['ds', 'yhat']])
 
         # Display the forecast with renamed columns
-st.subheader('Forecast data')
+st.subheader('Prediction Result for '+food_item)
 
 # Rename the columns
 forecast_display = forecast[['ds', 'yhat']].rename(columns={'ds': 'Date', 'yhat': 'Predicted Price'})
